@@ -4,7 +4,7 @@
 </script>
 
 <template>
-  <main class="pt-40 w-full px-2 mx-auto">
+  <main class="pt-40 pb-20 w-full px-2 mx-auto">
     <div class="flex mx-2 gap-6">
         <SidebarComp />
         <slot />
