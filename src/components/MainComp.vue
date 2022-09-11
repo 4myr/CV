@@ -42,7 +42,7 @@
 
 <style>
     .line {
-        @apply bg-white rounded-full h-[3px]
+        @apply bg-white rounded-full h-[3px] transition-all duration-500
     }
     .menu {
         @apply cursor-pointer flex flex-col gap-1 items-end
