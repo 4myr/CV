@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <h1 class="relative text-2xl font-medium before:content-[''] before:w-[42px] before:h-[5px] before:rounded-full before:bg-blue before:absolute before:-bottom-[18px]">{{ props.title }}</h1>
+        <h1 class="relative text-2xl font-bold before:content-[''] before:w-[42px] before:h-[5px] before:rounded-full before:bg-blue before:absolute before:-bottom-[18px]">{{ props.title }}</h1>
         <div class="mt-10">
             <slot />
         </div>
