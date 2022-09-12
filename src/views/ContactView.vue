@@ -1,0 +1,8 @@
+<script setup lang="ts">
+import MainComp from "../components/MainComp.vue";
+</script>
+
+<template>
+  <MainComp title="تماس">
+  </MainComp>
+</template>
