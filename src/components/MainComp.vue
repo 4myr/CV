@@ -16,16 +16,16 @@
     <div class="w-full h-full">
       <div class="bg-background-secondary shadow-xl relative p-8 rounded-3xl transition-shadow duration-300 ease-in-out">
         <div class="absolute left-0 top-0">
-            <div class="transition-all transition-width bg-blue p-4 px-5 min-w-[60px] h-[60px] rounded-[50px] rounded-tl-[35px] flex justify-center items-center">
-                <div class="flex items-center gap-12">
-                    <ul v-if="menuIsActive" class="flex-1 flex justify-center items-center gap-8 px-10">
-                        <li>درباره من</li>
+            <div :class="`bg-blue p-4 px-5 min-w-[60px] h-[60px] rounded-[60px] rounded-tl-[50px] flex justify-center items-center`">
+                <div class="gap-12">
+                    <ul :class="`float-right flex justify-center items-center gap-8 px-10 overflow-hidden ${menuIsActive ? 'w-[400px]' : 'w-0 px-0'} duration-700 transition-all`">
+                        <li>درباره‌من</li>
                         <li>رزومه</li>
                         <li>نمونه‌کارها</li>
                         <li>بلاگ</li>
                         <li>تماس</li>
                     </ul>
-                    <button @click="toggleMenu" :class="`menu ${menuIsActive ? 'is-active' : ''}`">
+                    <button @click="toggleMenu" :class="`float-left menu ${menuIsActive ? 'is-active' : ''} pt-[3px] pr-[2px]`">
                         <div class="line w-[24px]" />
                         <div class="line w-[20px]" />
                         <div class="line w-[24px]" />
@@ -57,15 +57,5 @@
     }
     .menu.is-active .line:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
-    }
-    .transition-width {
-        -webkit-transition: width 1s ease-in-out, padding-left 1s ease-in-out, 
-            padding-right 1s ease-in-out;
-        -moz-transition: width 1s ease-in-out, padding-left 1s ease-in-out, 
-            padding-right 1s ease-in-out;
-        -o-transition: width 1s ease-in-out, padding-left 1s ease-in-out, 
-            padding-right 1s ease-in-out;
-        transition: width 1s ease-in-out, padding-left 1s ease-in-out, 
-            padding-right 1s ease-in-out;
     }
 </style>
