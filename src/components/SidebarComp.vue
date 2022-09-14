@@ -29,24 +29,34 @@
             <div class="w-full text-center flex flex-col justify-center items-center gap-4">
                 <h3 class="text-2xl"><span class="font-bold">امیرحسین</span> حسن زاده</h3>
                 <Badge variant="dark">توسعه دهنده</Badge>
-                <div>Social Icons</div>
+                <div class="flex items-center justify-center gap-3">
+                    <a href="https://instagram.com/amyr.dev" target="_blank"><i class="font-icon icon-instagram" /></a>
+                    <a href="https://t.me/SudoYUM" target="_blank"><i class="font-icon icon-send" /></a>
+                    <a href="https://twitter.com/4myr_ir" target="_blank"><i class="font-icon icon-twitter" /></a>
+                    <a href="https://github.com/4myr" target="_blank"><i class="font-icon icon-github" /></a>
+                    <a href="https://www.linkedin.com/in/amyrir" target="_blank"><i class="font-icon icon-linkedin2" /></a>
+                </div>
             </div>
-            <ul class="flex flex-col gap-2 justify-center items-start">
+            <ul class="flex flex-col gap-2 justify-center items-start !text-primary">
                 <li class="flex justify-start items-center gap-2">
-                    <span>i</span>
-                    <span>21 فروردین 1379</span>
+                    <i class="font-icon icon-calendar" />
+                    <span class="text-sm">۲۱ فروردین ۱۳۷۹</span>
                 </li>
                 <li class="flex justify-start items-center gap-2">
-                    <span>i</span>
-                    <span>21 فروردین 1379</span>
+                    <i class="font-icon icon-location" />
+                    <span class="text-sm">تهران، ۱۷ شهریور</span>
                 </li>
                 <li class="flex justify-start items-center gap-2">
-                    <span>i</span>
-                    <span>21 فروردین 1379</span>
+                    <i class="font-icon icon-envelope" />
+                    <a href="mailto:info@amyr.ir" class="text-sm">info@amyr.ir</a>
+                </li>
+                <li class="flex justify-start items-center gap-2">
+                    <i class="font-icon icon-phone" />
+                    <span class="text-sm" dir="ltr">۰۹۱۲۰۲۰۶۸۸۱</span>
                 </li>
             </ul>
             <a class="shadow-xl bg-blue text-white w-full rounded-2xl py-4 text-center flex justify-center items-center gap-2">
-                <i>i</i>
+                <i class="font-icon icon-download" />
                 <span>دانلود CV</span>
             </a>
         </div>

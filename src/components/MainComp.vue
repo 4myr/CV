@@ -18,7 +18,7 @@
         <div class="absolute left-0 top-0">
             <div :class="`bg-blue p-4 px-5 min-w-[60px] h-[60px] rounded-[60px] rounded-tl-[50px] flex justify-center items-center`">
                 <div class="gap-12">
-                    <ul :class="`float-right flex justify-center items-center gap-8 px-10 overflow-hidden ${menuIsActive ? 'w-[350px]' : 'w-0 px-0'} duration-700 transition-all`">
+                    <ul :class="`menu-list float-right flex justify-center items-center gap-8 px-10 overflow-hidden ${menuIsActive ? 'w-[350px]' : 'w-0 px-0'} duration-700 transition-all`">
                         <li><router-link to="/">درباره‌من</router-link></li>
                         <li><router-link to="/resume">رزومه</router-link></li>
                         <li><router-link to="/portfolio">نمونه‌کارها</router-link></li>
@@ -57,10 +57,10 @@
     .menu.is-active .line:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
-    li a {
+    .menu-list li a {
         @apply opacity-70
     }
-    .router-link-active {
+    .menu-list .router-link-active {
         @apply opacity-100
     }
 </style>
