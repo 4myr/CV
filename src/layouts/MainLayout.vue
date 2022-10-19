@@ -5,7 +5,7 @@
 
 <template>
   <main class="pt-40 pb-20 w-full px-2 mx-auto">
-    <div class="flex mx-2 gap-6">
+    <div class="flex flex-col md:flex-row mx-2 gap-6">
         <SidebarComp />
         <slot />
     </div>

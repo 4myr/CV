@@ -6,7 +6,7 @@ import SkillProgress from "../components/SkillProgress.vue";
 <template>
   <MainComp title="رزومه">
     <div class="flex flex-col gap-4">
-      <div class="grid grid-cols-2 gap-12 pt-2">
+      <div class="grid md:grid-cols-2 gap-12 pt-2">
         <div class="flex flex-col gap-8 justify-center items-start">
           <div class="flex items-center gap-4">
             <img src="https://art-template.ru/vcard1/assets/icons/dark/icon-education.svg" width="40" height="40" />
@@ -66,7 +66,7 @@ import SkillProgress from "../components/SkillProgress.vue";
           </div>
         </div>
       </div>
-      <div class="grid grid-cols-2 gap-12 pt-2">
+      <div class="grid md:grid-cols-2 gap-12 pt-2">
         <div class="flex flex-col gap-5 justify-start items-start">
           <h2 class="text-xl font-semibold">مهارت‌های Front-End</h2>
           <div class="w-full flex flex-col justify-center items-start gap-4 bg-box p-6 rounded-xl">

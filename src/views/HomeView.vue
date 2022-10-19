@@ -11,7 +11,7 @@ import ClientBox from "../components/ClientBox.vue";
       
       <div class="flex flex-col gap-4">
         <h2 class="font-bold text-lg">کارهایی که من انجام می‌دهم</h2>
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid md:grid-cols-2 gap-4">
           <DoingBox title="توسعه سمت سرور" image="https://art-template.ru/vcard1/assets/icons/dark/icon-dev.svg" description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است" />
           <DoingBox title="توسعه سمت سرور" image="https://art-template.ru/vcard1/assets/icons/dark/icon-dev.svg" description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است" />
           <DoingBox title="توسعه سمت سرور" image="https://art-template.ru/vcard1/assets/icons/dark/icon-dev.svg" description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است" />

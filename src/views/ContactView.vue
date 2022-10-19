@@ -2,6 +2,7 @@
 import MainComp from "../components/MainComp.vue";
 import Input from "../components/Form/Input.vue";
 import Textarea from "../components/Form/Textarea.vue";
+import Button from "../components/Form/Button.vue";
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import Textarea from "../components/Form/Textarea.vue";
           <Input name="name" type="text" placeholder="نام و نام خانوادگی" icon="icon-user" />
           <Input name="email" type="email" placeholder="ایمیل" icon="icon-envelope" />
           <Textarea name="message" placeholder="پیام" :rows="5" class="col-span-2" />
+          <Button class="w-1/2 left-0 " icon="icon-send">ارسال پیام</Button>
         </form>
       </div>
     </div>
