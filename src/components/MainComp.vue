@@ -1,5 +1,6 @@
 
 <script setup lang="ts">
+    import { isDesktop, isMobile } from "@/common/helpers/helper";
     import { ref } from "vue";
 
     const props = defineProps<{
@@ -11,23 +12,31 @@
     const toggleMenu = () => {
         menuIsActive.value = !menuIsActive.value
     }
+
+    const menuItems = [
+        { title: 'درباره‌من', path: '/' },
+        { title: 'رزومه', path: '/resume' },
+        { title: 'نمونه‌کارها', path: '/portfolio' },
+        { title: 'تماس', path: '/contact' }
+    ];
 </script>
 <template>
     <div class="w-full h-full">
-      <div class="bg-background-secondary shadow-xl relative p-8 rounded-3xl transition-shadow duration-300 ease-in-out">
-        <div class="absolute left-0 top-0">
-            <div :class="`bg-blue p-4 px-5 min-w-[60px] h-[60px] rounded-[60px] rounded-tl-[50px] flex justify-center items-center`">
-                <div class="gap-12">
-                    <ul :class="`menu-list float-right flex justify-center items-center gap-8 px-10 overflow-hidden ${menuIsActive ? 'w-[350px]' : 'w-0 px-0'} duration-700 transition-all`">
-                        <li><router-link to="/">درباره‌من</router-link></li>
-                        <li><router-link to="/resume">رزومه</router-link></li>
-                        <li><router-link to="/portfolio">نمونه‌کارها</router-link></li>
-                        <li><router-link to="/contact">تماس</router-link></li>
-                    </ul>
-                    <button @click="toggleMenu" :class="`float-left menu ${menuIsActive ? 'is-active' : ''} pt-[3px] pr-[2px]`">
-                        <div class="line w-[24px]" />
-                        <div class="line w-[20px]" />
-                        <div class="line w-[24px]" />
+      <div class="bg-background-secondary shadow-xl md:relative p-8 rounded-3xl transition-shadow duration-300 ease-in-out">
+        <div class="fixed md:absolute m-[16px] md:m-0 right-0 md:right-auto md:left-0 top-0 z-50">
+            <div :class="`parent-menu bg-blue ${menuIsActive ? 'is-active' : ''} p-4 px-5 w-[40px] md:w-auto md:min-w-[60px] h-[40px] md:h-[60px] rounded-[60px] md:rounded-tl-[50px] flex justify-center items-center`">
+                <div class="flex gap-12">
+                    <div :class="`flex justify-center items-center ${isMobile() ? 'mobile-menu-list' : 'desktop-menu-list'} ${menuIsActive ? 'is-active' : ''}`">
+                        <ul :class="`menu-list float-right flex justify-center items-center gap-8 px-10 overflow-hidden ${menuIsActive ? 'w-[350px]' : 'md:w-0 px-0'} duration-700 transition-all`">
+                            <li v-for="item in menuItems" :key="item.title">
+                                <router-link :to="item.path">{{ item.title }}</router-link>
+                            </li>
+                        </ul>
+                    </div>
+                    <button @click="toggleMenu" :class="`float-left menu pt-[5px] ${menuIsActive ? 'is-active pt-0' : ''}  md:pt-[3px] pr-[2px]`">
+                        <div class="line w-[18px] md:w-[24px]" />
+                        <div class="line w-[14px] md:w-[20px]" />
+                        <div class="line w-[18px] md:w-[24px]" />
                     </button>
                 </div>
             </div>
@@ -40,22 +49,37 @@
 </template>
 
 <style>
+    .mobile-menu-list {
+        @apply w-screen h-screen fixed top-0 right-0 bg-background-secondary flex justify-center items-center translate-x-full transition-all
+    }
+    .mobile-menu-list.is-active {
+        @apply !translate-x-0
+    }
+    .mobile-menu-list > .menu-list {
+        @apply flex-col
+    }
     .line {
-        @apply bg-white rounded-full h-[3px] transition-all duration-500
+        @apply bg-white rounded-full h-[2px] md:h-[3px] transition-all duration-500
     }
     .menu {
-        @apply cursor-pointer flex flex-col gap-1 items-end
+        @apply cursor-pointer flex flex-col gap-1 items-start md:items-end
+    }
+    .menu.is-active > .line {
+        @apply bg-blue md:bg-white
+    }
+
+    .parent-menu.is-active {
+        @apply bg-transparent border border-blue md:border-0 md:bg-blue
     }
 
     .menu.is-active .line:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
+        @apply rotate-45 translate-y-[6px]
     }
     .menu.is-active .line:nth-child(2) {
-        opacity: 0;
-        transform: rotate(45deg);
+        @apply rotate-45 opacity-0
     }
     .menu.is-active .line:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+        @apply -rotate-45 -translate-y-[6px] md:-translate-y-[8px]
     }
     .menu-list li a {
         @apply opacity-70
