@@ -1,13 +1,13 @@
 
 <script setup lang="ts">
-    import { isDesktop, isMobile } from "@/common/helpers/helper";
-    import { ref } from "vue";
+    import { onBeforeUnmount, onMounted, ref } from "vue";
 
     const props = defineProps<{
         title: string;
     }>();
 
     const menuIsActive = ref(false);
+    const menuIsReady = ref(false);
 
     const toggleMenu = () => {
         menuIsActive.value = !menuIsActive.value
@@ -19,14 +19,23 @@
         { title: 'نمونه‌کارها', path: '/portfolio' },
         { title: 'تماس', path: '/contact' }
     ];
+
+    onBeforeUnmount(() => {
+        menuIsActive.value = false
+    })
+    onMounted(() => {
+        setTimeout(() => {
+            menuIsReady.value = true   
+        }, 700)
+    })
 </script>
 <template>
     <div class="w-full h-full">
       <div class="bg-background-secondary shadow-xl md:relative p-8 rounded-3xl transition-shadow duration-300 ease-in-out">
-        <div class="fixed md:absolute m-[16px] md:m-0 right-0 md:right-auto md:left-0 top-0 z-50">
+        <div v-if="menuIsReady" class="fixed md:absolute m-[16px] md:m-0 right-0 md:right-auto md:left-0 top-0 z-50">
             <div :class="`parent-menu bg-blue ${menuIsActive ? 'is-active' : ''} p-4 px-5 w-[40px] md:w-auto md:min-w-[60px] h-[40px] md:h-[60px] rounded-[60px] md:rounded-tl-[50px] flex justify-center items-center`">
                 <div class="flex gap-12">
-                    <div :class="`flex justify-center items-center ${isMobile() ? 'mobile-menu-list' : 'desktop-menu-list'} ${menuIsActive ? 'is-active' : ''}`">
+                    <div :class="`flex justify-center items-center mobile-menu-list md:desktop-menu-list ${menuIsActive ? 'is-active' : ''}`">
                         <ul :class="`menu-list float-right flex justify-center items-center gap-8 px-10 overflow-hidden ${menuIsActive ? 'w-[350px]' : 'md:w-0 px-0'} duration-700 transition-all`">
                             <li v-for="item in menuItems" :key="item.title">
                                 <router-link :to="item.path">{{ item.title }}</router-link>
@@ -43,7 +52,9 @@
         </div>
         <h1 class="relative text-2xl font-bold before:content-[''] before:w-[42px] before:h-[5px] before:rounded-full before:bg-blue before:absolute before:-bottom-[18px]">{{ props.title }}</h1>
         <div class="mt-10">
-            <slot />
+            <transition name="scale" mode="out-in">
+                <slot />
+            </transition>
         </div>
         </div></div>
 </template>
