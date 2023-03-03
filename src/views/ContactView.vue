@@ -15,7 +15,7 @@ import Button from "../components/Form/Button.vue";
           <Input name="name" type="text" placeholder="نام و نام خانوادگی" icon="icon-user" />
           <Input name="email" type="email" placeholder="ایمیل" icon="icon-envelope" />
           <Textarea name="message" placeholder="پیام" :rows="5" class="col-span-2" />
-          <Button class="w-1/2 left-0 " icon="icon-send">ارسال پیام</Button>
+          <Button class="left-0 col-span-2 md:col-span-1 !col-end-3" icon="icon-send" disabled>ارسال پیام</Button>
         </form>
       </div>
     </div>

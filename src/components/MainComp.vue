@@ -1,6 +1,7 @@
 
 <script setup lang="ts">
-    import { onBeforeUnmount, onMounted, ref } from "vue";
+    import { onBeforeUnmount, onMounted, ref, computed } from "vue";
+    import {isMobile} from '../common/helpers/helper'
 
     const props = defineProps<{
         title: string;
@@ -9,6 +10,7 @@
     const menuIsActive = ref(false);
     const menuIsReady = ref(false);
 
+    const inMobile = window.innerWidth < 768;
     const toggleMenu = () => {
         menuIsActive.value = !menuIsActive.value
     }
@@ -34,8 +36,8 @@
       <div class="bg-background-secondary shadow-xl md:relative p-8 rounded-3xl transition-shadow duration-300 ease-in-out">
         <div v-if="menuIsReady" class="fixed md:absolute m-[16px] md:m-0 right-0 md:right-auto md:left-0 top-0 z-50">
             <div :class="`parent-menu bg-blue ${menuIsActive ? 'is-active' : ''} p-4 px-5 w-[40px] md:w-auto md:min-w-[60px] h-[40px] md:h-[60px] rounded-[60px] md:rounded-tl-[50px] flex justify-center items-center`">
-                <div class="flex gap-12">
-                    <div :class="`flex justify-center items-center mobile-menu-list md:desktop-menu-list ${menuIsActive ? 'is-active' : ''}`">
+                <div :class="`flex ${menuIsActive && 'gap-12'}`">
+                    <div :class="`flex justify-center items-center ${inMobile && 'mobile-menu-list'} $ ${menuIsActive ? 'is-active' : ''}`">
                         <ul :class="`menu-list float-right flex justify-center items-center gap-8 px-10 overflow-hidden ${menuIsActive ? 'w-[350px]' : 'md:w-0 px-0'} duration-700 transition-all`">
                             <li v-for="item in menuItems" :key="item.title">
                                 <router-link :to="item.path">{{ item.title }}</router-link>
@@ -68,6 +70,9 @@
     }
     .mobile-menu-list > .menu-list {
         @apply flex-col
+    }
+    .desktop-menu-list {
+        @apply bg-red-400
     }
     .line {
         @apply bg-white rounded-full h-[2px] md:h-[3px] transition-all duration-500

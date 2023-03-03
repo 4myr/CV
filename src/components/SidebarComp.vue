@@ -20,6 +20,10 @@
         imageStyles.value = windowTop.value > 32 ? 'margin-top: -8px;' : ''
         sidebarStyles.value = windowTop.value > 64 ? 'top: 24px;' : ''
     })
+
+    const downloadCV = () => {
+        window.open('https://amyr.ir/cv.pdf', '_blank')
+    }
 </script>
 
 <template>
@@ -29,7 +33,7 @@
         <div class="flex flex-col gap-7 justify-center items-start">
             <div class="w-full text-center flex flex-col justify-center items-center gap-4">
                 <h3 class="text-2xl"><span class="font-bold">امیرحسین</span> حسن زاده</h3>
-                <Badge variant="dark">توسعه دهنده</Badge>
+                <Badge variant="dark">Full Stack Developer</Badge>
                 <div class="flex items-center justify-center gap-3">
                     <a href="https://instagram.com/amyr.dev" target="_blank"><i class="font-icon icon-instagram" /></a>
                     <a href="https://t.me/SudoYUM" target="_blank"><i class="font-icon icon-send" /></a>
@@ -39,10 +43,10 @@
                 </div>
             </div>
             <ul class="flex flex-col gap-2 justify-center items-start !text-primary">
-                <li class="flex justify-start items-center gap-2">
+                <!-- <li class="flex justify-start items-center gap-2">
                     <i class="font-icon icon-calendar" />
                     <span class="text-sm">۲۱ فروردین ۱۳۷۹</span>
-                </li>
+                </li> -->
                 <li class="flex justify-start items-center gap-2">
                     <i class="font-icon icon-location" />
                     <span class="text-sm">تهران، ۱۷ شهریور</span>
@@ -56,7 +60,7 @@
                     <span class="text-sm" dir="ltr">۰۹۱۲۰۲۰۶۸۸۱</span>
                 </li>
             </ul>
-            <Button icon="icon-download">دانلود CV</Button>
+            <Button :onClick="downloadCV" icon="icon-download">دانلود CV</Button>
         </div>
     </div>
   </aside>
